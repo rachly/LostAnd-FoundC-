@@ -1,0 +1,106 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\EvereyDay\\EvereyDay.csproj": {}
+  },
+  "projects": {
+    "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\BL\\BL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\BL\\BL.csproj",
+        "projectName": "BL",
+        "projectPath": "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\BL\\BL.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\DAL\\DAL.csproj": {
+                "projectPath": "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\DAL\\DAL.csproj"
+              },
+              "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\DTO\\DTO.csproj": {
+                "projectPath": "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\DTO\\DTO.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\DAL\\DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\DAL\\DAL.csproj",
+        "projectName": "DAL",
+        "projectPath": "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\DAL\\DAL.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\DTO\\DTO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\DTO\\DTO.csproj",
+        "projectName": "DTO",
+        "projectPath": "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\DTO\\DTO.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\EvereyDay\\EvereyDay.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\EvereyDay\\EvereyDay.csproj",
+        "projectName": "EvereyDay",
+        "projectPath": "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\EvereyDay\\EvereyDay.csproj",
+        "packagesPath": "C:\\Users\\אסתי\\.nuget\\packages\\",
+        "outputPath": "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\EvereyDay\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\אסתי\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\BL\\BL.csproj": {
+                "projectPath": "D:\\שיעורי בית\\שנה ב\\פרויקט גמר\\Server\\LostAndFound\\BL\\BL.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

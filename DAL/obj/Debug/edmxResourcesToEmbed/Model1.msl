@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="lostFoundDBModelStoreContainer" CdmEntityContainer="lostFoundDBEntities">
+    <EntitySetMapping Name="category">
+      <EntityTypeMapping TypeName="lostFoundDBModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="categoryCode" ColumnName="categoryCode" />
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+          <ScalarProperty Name="masterCategory" ColumnName="masterCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="color">
+      <EntityTypeMapping TypeName="lostFoundDBModel.color">
+        <MappingFragment StoreEntitySet="color">
+          <ScalarProperty Name="colorDescription" ColumnName="colorDescription" />
+          <ScalarProperty Name="colorId" ColumnName="colorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Image">
+      <EntityTypeMapping TypeName="lostFoundDBModel.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="FileValue" ColumnName="FileValue" />
+          <ScalarProperty Name="ImageCaption" ColumnName="ImageCaption" />
+          <ScalarProperty Name="NameImage" ColumnName="NameImage" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="item">
+      <EntityTypeMapping TypeName="lostFoundDBModel.item">
+        <MappingFragment StoreEntitySet="item">
+          <ScalarProperty Name="colorId" ColumnName="colorId" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="imageCode" ColumnName="imageCode" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="isBargain" ColumnName="isBargain" />
+          <ScalarProperty Name="phoneFinder" ColumnName="phoneFinder" />
+          <ScalarProperty Name="nameFinder" ColumnName="nameFinder" />
+          <ScalarProperty Name="itemDescription" ColumnName="itemDescription" />
+          <ScalarProperty Name="categoryCode" ColumnName="categoryCode" />
+          <ScalarProperty Name="itemPlace" ColumnName="itemPlace" />
+          <ScalarProperty Name="itemId" ColumnName="itemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="lostFoundDBModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isPriemum" ColumnName="isPriemum" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

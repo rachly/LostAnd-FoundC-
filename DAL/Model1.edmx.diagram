@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e8e5f83516c04a489c1ebcd8a9b4eef7" Name="Diagram1" ZoomLevel="98">
+        <EntityTypeShape EntityType="lostFoundDBModel.category" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="lostFoundDBModel.color" Width="1.5" PointX="3.75" PointY="6.25" />
+        <EntityTypeShape EntityType="lostFoundDBModel.Image" Width="1.5" PointX="3.75" PointY="8.625" />
+        <EntityTypeShape EntityType="lostFoundDBModel.item" Width="1.5" PointX="6" PointY="0.75" />
+        <AssociationConnector Association="lostFoundDBModel.FK_item_category" />
+        <AssociationConnector Association="lostFoundDBModel.FK_item_color" />
+        <AssociationConnector Association="lostFoundDBModel.FK_item_Image" />
+        <EntityTypeShape EntityType="lostFoundDBModel.users" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="lostFoundDBModel.FK_item_users" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

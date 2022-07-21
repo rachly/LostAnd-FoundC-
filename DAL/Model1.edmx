@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="lostFoundDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="categoryCode" />
+          </Key>
+          <Property Name="categoryCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryName" Type="varchar" MaxLength="20" />
+          <Property Name="masterCategory" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="color">
+          <Key>
+            <PropertyRef Name="colorId" />
+          </Key>
+          <Property Name="colorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="colorDescription" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameImage" Type="varchar" MaxLength="50" />
+          <Property Name="ImageCaption" Type="varchar" MaxLength="50" />
+          <Property Name="FileValue" Type="image" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="itemId" />
+          </Key>
+          <Property Name="itemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="itemPlace" Type="varchar" MaxLength="20" />
+          <Property Name="categoryCode" Type="int" />
+          <Property Name="itemDescription" Type="varchar" MaxLength="50" />
+          <Property Name="nameFinder" Type="varchar" MaxLength="20" />
+          <Property Name="phoneFinder" Type="varchar" MaxLength="10" />
+          <Property Name="isBargain" Type="bit" />
+          <Property Name="userId" Type="int" />
+          <Property Name="imageCode" Type="int" />
+          <Property Name="ImageId" Type="int" />
+          <Property Name="isActive" Type="bit" />
+          <Property Name="colorId" Type="int" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="20" />
+          <Property Name="isPriemum" Type="bit" />
+          <Property Name="isActive" Type="bit" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="10" />
+          <Property Name="city" Type="nchar" MaxLength="20" />
+          <Property Name="mail" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_item_category">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="item" Type="Self.item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="categoryCode" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="categoryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_item_color">
+          <End Role="color" Type="Self.color" Multiplicity="0..1" />
+          <End Role="item" Type="Self.item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="color">
+              <PropertyRef Name="colorId" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="colorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_item_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+          <End Role="item" Type="Self.item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_item_users">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="item" Type="Self.item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="lostFoundDBModelStoreContainer">
+          <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="color" EntityType="Self.color" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_item_category" Association="Self.FK_item_category">
+            <End Role="category" EntitySet="category" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_item_color" Association="Self.FK_item_color">
+            <End Role="color" EntitySet="color" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_item_Image" Association="Self.FK_item_Image">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_item_users" Association="Self.FK_item_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="lostFoundDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="categoryCode" />
+          </Key>
+          <Property Name="categoryCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="masterCategory" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="item" Relationship="lostFoundDBModel.FK_item_category" FromRole="category" ToRole="item" />
+        </EntityType>
+        <EntityContainer Name="lostFoundDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="category" EntityType="Self.category" />
+          <EntitySet Name="color" EntityType="lostFoundDBModel.color" />
+          <EntitySet Name="Image" EntityType="lostFoundDBModel.Image" />
+          <EntitySet Name="item" EntityType="lostFoundDBModel.item" />
+          <AssociationSet Name="FK_item_category" Association="lostFoundDBModel.FK_item_category">
+            <End Role="category" EntitySet="category" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_item_color" Association="lostFoundDBModel.FK_item_color">
+            <End Role="color" EntitySet="color" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_item_Image" Association="lostFoundDBModel.FK_item_Image">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+          <EntitySet Name="users" EntityType="lostFoundDBModel.users" />
+          <AssociationSet Name="FK_item_users" Association="lostFoundDBModel.FK_item_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="color">
+          <Key>
+            <PropertyRef Name="colorId" />
+          </Key>
+          <Property Name="colorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="colorDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="item" Relationship="lostFoundDBModel.FK_item_color" FromRole="color" ToRole="item" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameImage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImageCaption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileValue" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="item" Relationship="lostFoundDBModel.FK_item_Image" FromRole="Image" ToRole="item" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="itemId" />
+          </Key>
+          <Property Name="itemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itemPlace" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="categoryCode" Type="Int32" />
+          <Property Name="itemDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nameFinder" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="phoneFinder" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="isBargain" Type="Boolean" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="imageCode" Type="Int32" />
+          <Property Name="ImageId" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" />
+          <Property Name="colorId" Type="Int32" />
+          <NavigationProperty Name="category" Relationship="lostFoundDBModel.FK_item_category" FromRole="item" ToRole="category" />
+          <NavigationProperty Name="color" Relationship="lostFoundDBModel.FK_item_color" FromRole="item" ToRole="color" />
+          <NavigationProperty Name="Image" Relationship="lostFoundDBModel.FK_item_Image" FromRole="item" ToRole="Image" />
+          <NavigationProperty Name="users" Relationship="lostFoundDBModel.FK_item_users" FromRole="item" ToRole="users" />
+        </EntityType>
+        <Association Name="FK_item_category">
+          <End Type="lostFoundDBModel.category" Role="category" Multiplicity="0..1" />
+          <End Type="lostFoundDBModel.item" Role="item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="categoryCode" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="categoryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_item_color">
+          <End Type="lostFoundDBModel.color" Role="color" Multiplicity="0..1" />
+          <End Type="lostFoundDBModel.item" Role="item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="color">
+              <PropertyRef Name="colorId" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="colorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_item_Image">
+          <End Type="lostFoundDBModel.Image" Role="Image" Multiplicity="0..1" />
+          <End Type="lostFoundDBModel.item" Role="item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="isPriemum" Type="Boolean" />
+          <Property Name="isActive" Type="Boolean" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="item" Relationship="lostFoundDBModel.FK_item_users" FromRole="users" ToRole="item" />
+        </EntityType>
+        <Association Name="FK_item_users">
+          <End Type="lostFoundDBModel.users" Role="users" Multiplicity="0..1" />
+          <End Type="lostFoundDBModel.item" Role="item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="lostFoundDBModelStoreContainer" CdmEntityContainer="lostFoundDBEntities">
+          <EntitySetMapping Name="category">
+            <EntityTypeMapping TypeName="lostFoundDBModel.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="categoryCode" ColumnName="categoryCode" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="masterCategory" ColumnName="masterCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="color">
+            <EntityTypeMapping TypeName="lostFoundDBModel.color">
+              <MappingFragment StoreEntitySet="color">
+                <ScalarProperty Name="colorDescription" ColumnName="colorDescription" />
+                <ScalarProperty Name="colorId" ColumnName="colorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Image">
+            <EntityTypeMapping TypeName="lostFoundDBModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="FileValue" ColumnName="FileValue" />
+                <ScalarProperty Name="ImageCaption" ColumnName="ImageCaption" />
+                <ScalarProperty Name="NameImage" ColumnName="NameImage" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="item">
+            <EntityTypeMapping TypeName="lostFoundDBModel.item">
+              <MappingFragment StoreEntitySet="item">
+                <ScalarProperty Name="colorId" ColumnName="colorId" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="imageCode" ColumnName="imageCode" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="isBargain" ColumnName="isBargain" />
+                <ScalarProperty Name="phoneFinder" ColumnName="phoneFinder" />
+                <ScalarProperty Name="nameFinder" ColumnName="nameFinder" />
+                <ScalarProperty Name="itemDescription" ColumnName="itemDescription" />
+                <ScalarProperty Name="categoryCode" ColumnName="categoryCode" />
+                <ScalarProperty Name="itemPlace" ColumnName="itemPlace" />
+                <ScalarProperty Name="itemId" ColumnName="itemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="lostFoundDBModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="isPriemum" ColumnName="isPriemum" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
